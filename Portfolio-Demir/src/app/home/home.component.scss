@@ -1,0 +1,110 @@
+main {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(40deg, #1c1c1c 35%, #08463b 65%);
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1440px;
+  height: 900px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  border: 2px solid red;
+}
+
+.namecontainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    font-family: "Fira Code";
+    color: #d9d9d9;
+    font-size: 40px;
+  }
+
+  span {
+    font-family: "Karla";
+    font-weight: 700;
+    font-size: 128px;
+    color: #d9d9d9;
+  }
+}
+
+.btncontainer {
+  display: flex;
+  justify-content: space-between;
+  width: 363px;
+}
+
+.homebtn {
+  height: 48px;
+  border-radius: 100px;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: "Karla";
+  font-size: 18px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.marquee {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 100%;
+  max-width: 1480px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.12);
+  padding: 10px 0;
+  backdrop-filter: blur(5.3px);
+  clip-path: polygon(0.24% 0, 100% 0, 99.76% 100%, 0% 100%);
+  
+  .marquee-content {
+    display: flex; /* Flexbox, damit die Elemente horizontal ausgerichtet sind */
+    align-items: center;
+    justify-content: center;
+    animation: scroll 30s linear infinite; /* Nahtlose Animation */
+  }
+
+  span {
+    white-space: nowrap; /* Verhindert, dass der Text umbricht */
+    font-size: 32px; /* Schriftgröße anpassen */
+    font-family: "Karla";
+    font-weight: 40;
+    position: relative;
+    color: #3dcfb6;
+    &::after {
+      content: "•"; /* Der Punkt */
+      color: #3dcfb6; /* Punktfarbe */
+      margin-left: 30px; /* Abstand zum Text */
+      margin-right: 30px; /* Abstand zum nächsten Text */
+    }
+
+    &:last-child::after {
+      content: ""; /* Entfernt den Punkt nach dem letzten Element */
+    }
+  }
+}
+
+/* Animation für die Laufschrift */
+@keyframes scroll {
+  from {
+    transform: translateX(0); /* Start außerhalb des Bildschirms */
+  }
+  to {
+    transform: translateX(-50%); /* Ende außerhalb des Bildschirms */
+  }
+}
