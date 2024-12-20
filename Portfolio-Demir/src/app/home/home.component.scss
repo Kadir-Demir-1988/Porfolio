@@ -18,7 +18,6 @@ main {
   margin: 0 auto;
   width: 100%;
   text-align: center;
-  border: 2px solid red;
 }
 
 .namecontainer {
@@ -45,6 +44,7 @@ main {
   display: flex;
   justify-content: space-between;
   width: 363px;
+  margin-top: 1rem;
 }
 
 .homebtn {
@@ -71,7 +71,7 @@ main {
   padding: 10px 0;
   backdrop-filter: blur(5.3px);
   clip-path: polygon(0.24% 0, 100% 0, 99.76% 100%, 0% 100%);
-  
+
   .marquee-content {
     display: flex; /* Flexbox, damit die Elemente horizontal ausgerichtet sind */
     align-items: center;
@@ -107,4 +107,31 @@ main {
   to {
     transform: translateX(-50%); /* Ende außerhalb des Bildschirms */
   }
+}
+
+.leftlateral {
+  position: absolute;
+  bottom: 0;
+  left: 90px;
+}
+
+.rightvector {
+  position: absolute;
+  bottom: 0;
+  right: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.email-vertical {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  transform-origin: center;
+  font-family: "Karla";
+  font-size: 18px;
+  color: white;
 }
