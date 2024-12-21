@@ -1,1 +1,27 @@
-<p>skillset works!</p>
+<section>
+    <div class="skillsettext">
+        <p>Technologies</p>
+        <div class="skillsetbox">
+            <h1>Skill Set</h1>
+            <span>
+                My journey has involved working on diverse projects, employing a range of frontend technologies and
+                concepts. I am open to embracing new technologies and methodologies to continuously enhance my
+                skills
+                and stay ahead in the ever-evolving landscape of web development.
+            </span>
+
+            <h2 class="dual-color-heading">
+                You need <span>another skill?</span>
+            </h2>
+
+            <p>Feel free to contact me. I look forward to<br> expanding on my previous knowledge.</p>
+            <button class="talkbtn">Let´s Talk</button>
+        </div>
+    </div>
+    <div class="skills-container">
+        <div class="skill-item" *ngFor="let skill of skills">
+          <img [src]="skill.svg" [alt]="skill.label" class="skill-icon" />
+          <p class="skill-label">{{ skill.label }}</p>
+        </div>
+      </div>
+</section>

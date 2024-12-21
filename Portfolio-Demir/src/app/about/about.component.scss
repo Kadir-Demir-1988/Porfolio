@@ -1,9 +1,9 @@
 .aboutme {
-  height: 100vh;
   background-color: #1c1c1c;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 100px 0px;
 }
 
 .aboutmecontent {
@@ -24,7 +24,7 @@
 }
 
 .aboutmetextbox {
-  margin: 24px;
+  margin: 48px;
   p {
     font-size: 32px;
     color: #3dcfb6;
@@ -72,3 +72,4 @@
     width: 32px;
   }
 }
+
