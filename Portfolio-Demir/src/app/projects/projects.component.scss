@@ -1,0 +1,77 @@
+.projectcontainer {
+  background-color: #1c1c1c;
+  padding-top: 100px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+
+  span {
+    font-family: "Karla", sans-serif;
+    font-size: 24px;
+    color: #3dcfb6;
+  }
+
+  h2 {
+    font-family: "Fira Code", sans-serif;
+    font-size: 64px;
+    color: #3dcfb6;
+  }
+
+  p {
+    font-family: "Karla", sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+  }
+}
+.projects {
+  margin-top: 42px;
+  max-width: 1440px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+}
+
+.project-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 880px;
+  border-top: 1px solid #3dcfb6;
+
+  padding: 40px 32px;
+
+  h3 {
+    font-family: "Fira Code", sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+  }
+}
+
+.leftsideproject {
+  display: flex;
+  gap: 16px;
+}
+
+::ng-deep .divider {
+  color: #3dcfb6;
+  font-size: 18px;
+}
+
+::ng-deep .tech {
+  color: #ffffff;
+  font-family: "karla";
+  font-size: 18px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #3dcfb6;
+  margin-bottom: 50px;
+}

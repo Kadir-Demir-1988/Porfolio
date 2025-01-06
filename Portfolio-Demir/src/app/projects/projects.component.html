@@ -1,1 +1,17 @@
-<p>projects works!</p>
+<div class="projectcontainer">
+    <span>Portfolio</span>
+    <h2>Featured Projects</h2>
+    <p class="place">Explore a selection of my work here - Interact with<br>projects to see my skills in action.</p>
+</div>
+<div class="projects">
+    <div *ngFor="let project of projects; let i = index" class="project-card"
+        [ngClass]="{ 'border-bottom': i === projects.length - 1 }">
+        <div class="leftsideproject">
+            <h3>{{ project.title }}</h3>
+            <img class="arrowout" src="assets/img/projectimg/arrow_outward.svg" alt="" />
+        </div>
+        <p>
+            <span [innerHTML]="formatStack(project.stack)"></span>
+        </p>
+    </div>
+</div>
