@@ -1,1 +1,19 @@
-<p>sayaboutme works!</p>
+<div class="testimonial-carousel">
+    <h2>What my colleagues say about me</h2>
+    <img class="quote-icon" src="assets/img/quotes.svg" alt="">
+
+    <div class="carousel">
+        <div class="slide" *ngFor="let testimonial of testimonials; let i = index" [class.active]="i === currentIndex">
+            <div class="content">
+                <p>{{ testimonials[currentIndex].quote }}</p>
+            </div>
+            <div class="author">
+                <span>{{ testimonials[currentIndex].author }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-controls">
+        <button (click)="previousBtn()">←</button>
+        <button (click)="nextBtn()">→</button>
+    </div>
+</div>
