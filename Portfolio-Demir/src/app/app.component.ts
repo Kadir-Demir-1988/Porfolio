@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { SkillsetComponent } from './skillset/skillset.component';
 import { ProjectsComponent } from "./projects/projects.component";
 import { SayaboutmeComponent } from "./sayaboutme/sayaboutme.component";
+import { ContactComponent } from "./contact/contact.component";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { SayaboutmeComponent } from "./sayaboutme/sayaboutme.component";
     HeaderComponent,
     SkillsetComponent,
     ProjectsComponent,
-    SayaboutmeComponent
+    SayaboutmeComponent,
+    ContactComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
