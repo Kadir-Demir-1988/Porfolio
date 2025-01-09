@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { HeaderComponent } from './header/header.component';
 import { SkillsetComponent } from './skillset/skillset.component';
-import { ProjectsComponent } from "./projects/projects.component";
-import { SayaboutmeComponent } from "./sayaboutme/sayaboutme.component";
-import { ContactComponent } from "./contact/contact.component";
+import { ProjectsComponent } from './projects/projects.component';
+import { SayaboutmeComponent } from './sayaboutme/sayaboutme.component';
+import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +17,12 @@ import { ContactComponent } from "./contact/contact.component";
     RouterOutlet,
     HomeComponent,
     AboutComponent,
-    HeaderComponent,
     SkillsetComponent,
     ProjectsComponent,
     SayaboutmeComponent,
-    ContactComponent
-],
+    ContactComponent,
+    FooterComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
