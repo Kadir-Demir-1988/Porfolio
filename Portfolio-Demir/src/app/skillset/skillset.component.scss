@@ -67,45 +67,144 @@ section {
 }
 
 .talkbtn {
+  height: 48px;
+  width: 122px; /* Automatische Breite basierend auf Inhalt */
+  border-radius: 100px;
+  border: 1px solid #ffffff;
   background-color: transparent;
+  color: #ffffff;
   font-family: "Karla";
   font-size: 18px;
-  border: 1px solid white;
-  height: 48px;
-  width: 122px;
-  border-radius: 100px;
-  color: white;
+  padding-left: 24px;
+  padding-right: 24px;
+  cursor: pointer;
+  overflow: hidden; /* Begrenze den sichtbaren Bereich */
+  position: relative; /* Erforderlich für die Animation */
+  /* Hover-Effekt für die Border */
+  &:hover {
+    border-color: #3dcfb6; /* Border-Farbe beim Hover */
+  }
+
+  /* Der Text innerhalb des Buttons */
+  span {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Karla";
+    white-space: nowrap; /* Verhindert Zeilenumbruch */
+    position: relative; /* Lässt den Text im Layout bleiben */
+    left: 0; /* Startposition */
+    transform: translateX(0); /* Start in der Mitte */
+    transition: none; /* Keine Übergangsanimation */
+  }
+
+  &:hover {
+    border: 1px solid #3dcfb6;
+  }
+
+  &:hover span {
+    color: #3dcfb6;
+    animation: moveText 2s linear infinite; /* Animation nur beim Hover */
+  }
+
+  @keyframes moveText {
+    0% {
+      transform: translateX(120%); /* Start rechts außerhalb des Buttons */
+    }
+    50% {
+      transform: translateX(0); /* Text ist in der Mitte */
+    }
+    100% {
+      transform: translateX(-120%); /* Text wandert vollständig nach links */
+    }
+  }
 }
 
 .skills-container {
-    display: flex;
-    flex-wrap: wrap; /* Elemente umbrechen */
-    justify-content: center; /* Zentriert die Reihen */
-    gap: 20px; /* Abstand zwischen den Symbolen */
-    max-width: 632px;
-  }
+  display: flex;
+  flex-wrap: wrap; /* Elemente umbrechen */
+  justify-content: center; /* Zentriert die Reihen */
+  gap: 20px; /* Abstand zwischen den Symbolen */
+  max-width: 632px;
+}
 
-  .skill-item {
-    flex: 0 1 calc(25% - 20px); /* 25% Breite pro Item (4 pro Reihe) */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 8px;
-  }
+.skill-item {
+  flex: 0 1 calc(25% - 20px); /* 25% Breite pro Item (4 pro Reihe) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
 
 .skill-icon {
-    width: 60px;
-    height: 60px;
-    object-fit: contain; /* Passt den Inhalt proportional an */
+  width: 60px;
+  height: 60px;
+  object-fit: contain; /* Passt den Inhalt proportional an */
+  transition: transform 0.3s ease; /* Sanfte Animation für die Vergrößerung */
+
+  &:hover {
+    transform: scale(1.1); /* Vergrößert das Bild um 5% */
   }
+}
 
 .skill-label {
-    font-family: "fira code";
-    font-size: 18px;
-    color: white; /* Oder eine Farbe deiner Wahl */
-  }
+  font-family: "fira code";
+  font-size: 18px;
+  color: white; /* Oder eine Farbe deiner Wahl */
+}
 
-  .skill-icon.material-design {
-    margin-top: 5px; /* Korrigiere die Position */
+.skill-icon.material-design {
+  margin-top: 5px; /* Korrigiere die Position */
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Abstand zwischen den Icons */
+  justify-content: center;
+
+  .skill-item {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05); /* Vergrößerung */
+    }
+
+    .skill-label {
+      margin-top: 10px;
+      color: white; /* Standardfarbe */
+      transition: color 0.3s ease;
+    }
+
+    &:hover .skill-label {
+      color: #3dcfb6; /* Textfarbe beim Hover */
+    }
+
+    &.special-skill {
+      /* Spezielle Stile für das letzte Icon */
+      .skill-label {
+        color: #3dcfb6; /* Standardfarbe für das Label */
+      }
+
+      .special-popup {
+        position: absolute;
+        top: -130px; /* Unterhalb des Icons */
+        left: 0;
+        transform: translateX(5%);
+        display: block;
+        background-color: transparent;
+        opacity: 0; /* Unsichtbar standardmäßig */
+        transition: opacity 0.3s ease-in-out;
+        width: auto; /* Automatische Größe basierend auf der SVG */
+      }
+
+      &:hover .special-popup {
+        opacity: 1; /* Sichtbar beim Hover */
+      }
+    }
   }
+}

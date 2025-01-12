@@ -97,8 +97,6 @@ main {
   }
 }
 
-
-
 .marquee {
   position: absolute;
   bottom: 70px;
@@ -166,6 +164,17 @@ main {
   gap: 20px;
 }
 
+.social-links {
+  position: relative;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .email-vertical {
   writing-mode: vertical-lr;
   text-orientation: mixed;
@@ -174,4 +183,45 @@ main {
   font-family: "Karla";
   font-size: 18px;
   color: white;
+
+  &:hover {
+    color: #3dcfb6;
+    cursor: pointer;
+  }
 }
+
+.social-links {
+  display: flex;
+  gap: 8px; /* Abstand zwischen den Links */
+}
+
+.social-link {
+  position: relative; /* Erforderlich für das Pseudoelement */
+  display: inline-block;
+  cursor: pointer;
+
+  img {
+    width: 40px; /* Größe der Icons */
+    height: 40px;
+    transition: filter 0.3s ease; /* Für sanfte Animation */
+  }
+
+  &:hover img {
+    filter: brightness(0) invert(1); /* Weiß färben */
+  }
+
+  /* Punkt beim Hover hinzufügen */
+  &.social-github:hover::after, /* Punkt für GitHub */
+  &.social-linkedin:hover::after { /* Punkt für LinkedIn */
+    content: "";
+    width: 8px; /* Größe des Punkts */
+    height: 8px;
+    background-color: #3dcfb6; /* Farbe des Punkts */
+    border-radius: 50%; /* Punkt als Kreis */
+    position: absolute;
+    right: -20px; /* Position rechts vom Icon */
+    top: 50%; /* Vertikal zentrieren */
+    transform: translateY(-50%); /* Exakte Zentrierung */
+  }
+}
+
