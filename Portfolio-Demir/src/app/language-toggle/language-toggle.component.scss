@@ -1,0 +1,17 @@
+.language-toggle {
+  .language-icon {
+    cursor: pointer;
+  }
+
+  .english-icon {
+    &:hover {
+      content: url("../../assets/img/translatebtn/translateENhover.svg");
+    }
+  }
+
+  .german-icon {
+    &:hover {
+      content: url('../../assets/img/translatebtn/translateDEhover.svg');
+    }
+  }
+}

@@ -43,13 +43,14 @@ main {
 
 .btncontainer {
   display: flex;
-  justify-content: space-between;
+  gap: 48px;
   width: 363px;
   margin-top: 1rem;
 }
 
 .homebtn {
   height: 48px;
+  width: auto; /* Automatische Breite basierend auf Inhalt */
   border-radius: 100px;
   border: 1px solid #ffffff;
   background-color: transparent;
@@ -58,7 +59,45 @@ main {
   font-size: 18px;
   padding-left: 24px;
   padding-right: 24px;
+  cursor: pointer;
+  overflow: hidden; /* Begrenze den sichtbaren Bereich */
+  position: relative; /* Erforderlich für die Animation */
+
+  span {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Karla";
+    white-space: nowrap; /* Verhindert Zeilenumbruch */
+    position: relative; /* Lässt den Text im Layout bleiben */
+    left: 0; /* Startposition */
+    transform: translateX(0); /* Start in der Mitte */
+    transition: none; /* Keine Übergangsanimation */
+  }
+
+  &:hover {
+    border: 1px solid #3dcfb6;
+  }
+
+  &:hover span {
+    color: #3dcfb6;
+    animation: moveText 2s linear infinite; /* Animation nur beim Hover */
+  }
+
+  @keyframes moveText {
+    0% {
+      transform: translateX(120%); /* Start rechts außerhalb des Buttons */
+    }
+    50% {
+      transform: translateX(0); /* Text ist in der Mitte */
+    }
+    100% {
+      transform: translateX(-120%); /* Text wandert vollständig nach links */
+    }
+  }
 }
+
+
 
 .marquee {
   position: absolute;
