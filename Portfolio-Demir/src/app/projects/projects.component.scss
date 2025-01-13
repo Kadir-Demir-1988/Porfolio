@@ -30,6 +30,7 @@
     color: #ffffff;
   }
 }
+
 .projects {
   margin-top: 42px;
   max-width: 1440px;
@@ -42,24 +43,59 @@
 }
 
 .project-card {
+  position: relative; /* Wichtig für das Bild */
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 880px;
   border-top: 1px solid #3dcfb6;
-
   padding: 40px 32px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 
   h3 {
     font-family: "Fira Code", sans-serif;
     font-size: 24px;
     color: #ffffff;
   }
+
+  &:hover .arrowout {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    background-color: rgba(61, 207, 182, 0.3);
+  }
+
+  .project-hover-image {
+    position: absolute;
+    right: -350px; /* Positioniere das Bild */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    opacity: 0; /* Standardmäßig unsichtbar */
+    visibility: hidden; /* Unsichtbar für Interaktionen */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  &:hover .project-hover-image {
+    opacity: 1; /* Sichtbar machen */
+    visibility: visible; /* Sichtbar machen */
+  }
 }
 
 .leftsideproject {
   display: flex;
   gap: 16px;
+
+  .arrowout {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Sanfte Animation */
+  }
 }
 
 ::ng-deep .divider {
@@ -76,4 +112,173 @@
 .border-bottom {
   border-bottom: 1px solid #3dcfb6;
   margin-bottom: 50px;
+}
+
+.projectsdetails {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 656px;
+  width: 1248px;
+  border: 1px solid #3dcfb6;
+  border-radius: 30px;
+  background: linear-gradient(20deg, #1c1c1c, #08463b);
+
+  position: fixed; /* Fixiert das Template relativ zum Viewport */
+  top: 50%; /* Vertikal zentrieren */
+  left: 50%; /* Horizontal zentrieren */
+  transform: translate(-50%, -50%); /* Exakte Zentrierung */
+  max-width: 1200px; /* Maximale Breite */
+  background-color: #1c1c1c; /* Hintergrundfarbe */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Optional: Schatteneffekt */
+  z-index: 1000; /* Stellt sicher, dass es vor anderen Inhalten liegt */
+  border-radius: 8px; /* Abgerundete Ecken */
+  padding: 20px; /* Abstand zum Rand des Inhalts */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Animation für das Einblenden */
+
+  &.hidden {
+    transform: translate(-50%, -50%) scale(0.9); /* Verkleinerungseffekt beim Verstecken */
+    opacity: 0; /* Unsichtbar */
+    pointer-events: none; /* Klicks blockieren, wenn versteckt */
+  }
+
+  &.visible {
+    transform: translate(-50%, -50%) scale(1); /* Originalgröße */
+    opacity: 1; /* Sichtbar */
+  }
+
+  .leftcontent {
+    width: 500px;
+    height: auto;
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-family: "karla", sans-serif;
+      font-size: 128px;
+      color: #3dcfb6;
+    }
+
+    h3 {
+      font-family: "fira code", sans-serif;
+      font-size: 64px;
+      color: #ffffff;
+    }
+
+    p {
+      font-family: "fira code", sans-serif;
+      color: #3dcfb6;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    span {
+      font-family: "karla", sans-serif;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .stack-images {
+      display: flex;
+      justify-content: flex-start;
+      gap: 16px;
+    }
+
+    .buttoncontainer {
+      display: flex;
+      gap: 32px;
+
+      button {
+        background-color: transparent;
+        border: 1px solid #ffffff;
+        border-radius: 50px;
+        padding: 16px 24px;
+        cursor: pointer;
+
+        &:hover {
+          border: 1px solid #3dcfb6;
+        }
+
+        &:hover {
+          border: 1px solid #3dcfb6;
+
+          a {
+            color: #3dcfb6;
+          }
+        }
+
+        a {
+          display: flex;
+          justify-content: center;
+          gap: 8px;
+          font-family: "karla", sans-serif;
+          color: #ffffff;
+          font-size: 18px;
+
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.rightcontent {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 520px;
+  height: 608px;
+
+  .closeposition {
+    display: flex;
+    justify-content: flex-end;
+
+    .closetemplate {
+      height: 48px;
+
+      &:hover {
+        content: url("../../assets/img/projectimg/closehover.svg");
+        cursor: pointer;
+      }
+    }
+  }
+
+  .template-img {
+    width: 520px;
+    height: auto;
+  }
+
+  .nextcontainer {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      font-family: "karla", sans-serif;
+      font-size: 18px;
+      color: #3dcfb6;
+      cursor: pointer;
+      gap: 8px;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  margin: 0;
 }

@@ -187,7 +187,11 @@ section {
     &.special-skill {
       /* Spezielle Stile für das letzte Icon */
       .skill-label {
-        color: #3dcfb6; /* Standardfarbe für das Label */
+        color: #ffffff; /* Standardfarbe für das Label */
+
+        &:hover {
+          color: #3dcfb6; /* Textfarbe beim Hover */
+        }
       }
 
       .special-popup {
