@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class ProjectsComponent {
   projects = PROJECTS;
   currentProjectIndex: number | null = null;
-  isTemplateVisible = false; // Zustand für Sichtbarkeit
+  isTemplateVisible = false;
 
   constructor(private renderer: Renderer2) {}
 
@@ -23,10 +23,10 @@ export class ProjectsComponent {
 
   closeTemplate() {
     this.isTemplateVisible = false;
-    this.enableScroll(); // Scrollen aktivieren
+    this.enableScroll();
     setTimeout(() => {
       this.currentProjectIndex = null;
-    }, 500); // Animation berücksichtigen
+    }, 500);
   }
 
   nextProject() {
@@ -36,12 +36,10 @@ export class ProjectsComponent {
     }
   }
 
-  // Scrollen deaktivieren
   disableScroll() {
     this.renderer.setStyle(document.body, 'overflow', 'hidden');
   }
 
-  // Scrollen aktivieren
   enableScroll() {
     this.renderer.removeStyle(document.body, 'overflow');
   }

@@ -43,7 +43,7 @@
 }
 
 .project-card {
-  position: relative; /* Wichtig für das Bild */
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,18 +72,18 @@
 
   .project-hover-image {
     position: absolute;
-    right: -350px; /* Positioniere das Bild */
+    right: -350px;
     top: 50%;
     transform: translateY(-50%);
     width: 300px;
-    opacity: 0; /* Standardmäßig unsichtbar */
-    visibility: hidden; /* Unsichtbar für Interaktionen */
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   &:hover .project-hover-image {
-    opacity: 1; /* Sichtbar machen */
-    visibility: visible; /* Sichtbar machen */
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -94,7 +94,7 @@
   .arrowout {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Sanfte Animation */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 }
 
@@ -124,27 +124,27 @@
   border-radius: 30px;
   background: linear-gradient(20deg, #1c1c1c, #08463b);
 
-  position: fixed; /* Fixiert das Template relativ zum Viewport */
-  top: 50%; /* Vertikal zentrieren */
-  left: 50%; /* Horizontal zentrieren */
-  transform: translate(-50%, -50%); /* Exakte Zentrierung */
-  max-width: 1200px; /* Maximale Breite */
-  background-color: #1c1c1c; /* Hintergrundfarbe */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Optional: Schatteneffekt */
-  z-index: 1000; /* Stellt sicher, dass es vor anderen Inhalten liegt */
-  border-radius: 8px; /* Abgerundete Ecken */
-  padding: 20px; /* Abstand zum Rand des Inhalts */
-  transition: transform 0.5s ease, opacity 0.5s ease; /* Animation für das Einblenden */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1200px;
+  background-color: #1c1c1c;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 
   &.hidden {
-    transform: translate(-50%, -50%) scale(0.9); /* Verkleinerungseffekt beim Verstecken */
-    opacity: 0; /* Unsichtbar */
-    pointer-events: none; /* Klicks blockieren, wenn versteckt */
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
   }
 
   &.visible {
-    transform: translate(-50%, -50%) scale(1); /* Originalgröße */
-    opacity: 1; /* Sichtbar */
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
 
   .leftcontent {
@@ -238,7 +238,7 @@
       height: 48px;
 
       &:hover {
-        content: url("../../assets/img/projectimg/closehover.svg");
+        content: url("/assets/img/projectimg/closehover.svg");
         cursor: pointer;
       }
     }

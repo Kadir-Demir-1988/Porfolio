@@ -12,42 +12,47 @@ export class SayaboutmeComponent {
   testimonials = [
     {
       quote:
-        'Lukas has proven to be a reliable group partner. His technical skills and proactive approach were crucial to the success of our project.',
-      author: 'H. Janisch - Team Partner',
+        'Kadir has proven to be a reliable group partner. His technical skills and proactive approach were crucial to the success of our project.',
+      author: 'H. Yashar - Team Partner',
     },
     {
       quote:
-        'I had the good fortune of working with Lukas. His effort and knowledge were essential for our success.',
-      author: 'A. Schulz - Frontend Developer',
+        'I had the good fortune of working with Kadir. His effort and knowledge were essential for our success.',
+      author: 'L. Nolting - Frontend Developer',
     },
     {
       quote:
-        "Lukas' efficient way of working inspired the whole team. His dedication was amazing!",
-      author: 'M. Schneider - Project Manager',
+        "Kadir' efficient way of working inspired the whole team. His dedication was amazing!",
+      author: 'S. Kalin - Team Partner',
     },
   ];
 
   currentIndex = 0;
-
-  // ngOnInit() {
-  //   setInterval(() => {
-  //     this.nextSlide();
-  //   }, 5000); // Wechselt alle 5 Sekunden
-  // }
+  isSlidingIn = false;
+  isSlidingOut = false;
 
   nextBtn(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
+    this.triggerSlide('next');
   }
 
-  // Funktion für den Zurück-Button
   previousBtn(): void {
-    this.currentIndex =
-      (this.currentIndex - 1 + this.testimonials.length) %
-      this.testimonials.length;
+    this.triggerSlide('previous');
   }
 
-  // Optional: Rückgabe der aktuellen Testimonial-Daten
-  getCurrentTestimonial() {
-    return this.testimonials[this.currentIndex];
+  private triggerSlide(direction: 'next' | 'previous') {
+    this.isSlidingOut = true; // Beginne die Animation
+    setTimeout(() => {
+      this.currentIndex =
+        direction === 'next'
+          ? (this.currentIndex + 1) % this.testimonials.length
+          : (this.currentIndex - 1 + this.testimonials.length) %
+            this.testimonials.length;
+
+      this.isSlidingOut = false; // Entferne alte Animation
+      this.isSlidingIn = true; // Starte die nächste Animation
+      setTimeout(() => {
+        this.isSlidingIn = false; // Animation komplett entfernen
+      }, 500); // Entspricht der Transition-Zeit im SCSS
+    }, 500); // Entspricht der Transition-Zeit im SCSS
   }
 }
