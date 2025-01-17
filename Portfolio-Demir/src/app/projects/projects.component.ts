@@ -61,11 +61,12 @@ export const PROJECTS = [
   {
     id: 1,
     title: 'Join',
-    stack: ['HTML', 'CSS', 'JavaScript'],
+    stack: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
     stackimgUrl: [
       'assets/img/projectimg/stackimg/HTML.svg',
       'assets/img/projectimg/stackimg/CSS.svg',
       'assets/img/projectimg/stackimg/Javascript.svg',
+      'assets/img/projectimg/stackimg/Firebase.svg',
     ],
     hoverimageUrl: 'assets/img/projectimg/join.svg',
     templateimageUrl: 'assets/img/projectimg/Jointemplate.svg',

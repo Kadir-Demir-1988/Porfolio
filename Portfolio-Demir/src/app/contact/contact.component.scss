@@ -71,6 +71,8 @@
   input {
     background-color: transparent;
     border: none;
+    outline: none;
+    color: #ffffff;
 
     &::placeholder {
       color: #ffffff;
@@ -101,6 +103,7 @@
     height: auto;
     background-color: transparent;
     border: none;
+    outline: none;
     color: #ffffff;
 
     &::placeholder {
@@ -166,18 +169,18 @@
       height: 100%;
     }
 
-    .checked {
-      display: none; // Checked-Zustand ausblenden
-    }
+    // .checked {
+    //   display: none; // Checked-Zustand ausblenden
+    // }
   }
 
-  input[type="checkbox"]:checked + label .unchecked {
-    display: none; // Unchecked-Zustand ausblenden, wenn aktiviert
-  }
+  // input[type="checkbox"]:checked + label .unchecked {
+  //   display: none;
+  // }
 
-  input[type="checkbox"]:checked + label .checked {
-    display: block; // Checked-Zustand anzeigen
-  }
+  // input[type="checkbox"]:checked + label .checked {
+  //   display: block;
+  // }
 }
 
 button {
@@ -194,4 +197,16 @@ button {
     background-color: #08fdd8;
     color: #000;
   }
+}
+
+.error-message {
+  color: #ec7b7b;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+
+
+button:disabled {
+  cursor: not-allowed;
 }

@@ -13,9 +13,5 @@ export class LanguageToggleComponent {
 
   toggleLanguage() {
     this.isEnglish = !this.isEnglish;
-    console.log(
-      'Sprache umgeschaltet auf:',
-      this.isEnglish ? 'Englisch' : 'Deutsch'
-    );
   }
 }

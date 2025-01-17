@@ -56,8 +56,10 @@ h2 {
 
 .carousel-controls {
   display: flex;
+  align-items: center;
   justify-content: center;
   margin-top: 10px;
+  gap: 16px;
 }
 
 button {
@@ -118,4 +120,23 @@ button:hover {
       }
     }
   }
+}
+
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #3dcfb6; /* Farbe für den aktiven Punkt */
 }

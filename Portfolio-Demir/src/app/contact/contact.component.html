@@ -14,35 +14,63 @@
 
     </div>
 
-    <div class="contactform">
-        <form>
-            <div class="form-group">
-                <label for="name">What's your name?</label>
-                <input type="text" id="name" placeholder="Your name goes here" />
-            </div>
-            <div class="form-group">
-                <label for="email">What's your email?</label>
-                <input type="email" id="email" placeholder="youremail@email.com" />
-            </div>
-            <div class="form-group-message">
-                <label for="message">How can I help you?</label>
-                <textarea id="message" placeholder="Enter a message..."></textarea>
-            </div>
-            <div class="form-group-checkbox">
-                <input type="checkbox" id="privacy-policy" />
-                <div class="custom-checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <label for="checkbox">
-                      <img src="../../assets/img/contactimg/checkbox.svg" class="unchecked" alt="Unchecked" />
-                      <img src="../../assets/img/contactimg/checkedbox.svg" class="checked" alt="Checked" />
-                    </label>
-                  </div>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+
+        <div class="form-group">
+            <label for="name">What's your name?</label>
+            <input type="text" id="name" name="name" placeholder="Your name goes here" ngModel required
+                #nameInput="ngModel" />
+            <p class="error-message" *ngIf="nameInput.invalid && nameInput.touched">
+                Please enter your name.
+            </p>
+        </div>
+
+
+        <div class="form-group">
+            <label for="email">What's your email?</label>
+            <input type="email" id="email" name="email" placeholder="youremail@email.com" ngModel required email
+                #emailInput="ngModel" />
+            <p class="error-message" *ngIf="emailInput.invalid && emailInput.touched">
+                Please enter a valid email address.
+            </p>
+        </div>
+
+
+        <div class="form-group-message">
+            <label for="message">How can I help you?</label>
+            <textarea id="message" name="message" placeholder="Hello Kadir, I am interested in ..." ngModel required
+                #messageInput="ngModel"></textarea>
+            <p class="error-message" *ngIf="messageInput.invalid && messageInput.touched">
+                Please enter a message.
+            </p>
+        </div>
+
+
+        <div class="form-group-checkbox">
+            <div class="custom-checkbox">
+                <!-- Unsichtbare native Checkbox -->
+                <input type="checkbox" id="privacy-policy" name="privacyPolicy" [(ngModel)]="isChecked" required
+                    hidden />
+                <!-- Checkbox-Bilder -->
                 <label for="privacy-policy">
-                    I've read the <a href="#">privacy policy</a> and agree to the processing of my data as outlined.
+                    <img [src]="isChecked ? '/assets/img/contactimg/checkedbox.svg' : '/assets/img/contactimg/checkbox.svg'"
+                        [alt]="isChecked ? 'Checked' : 'Unchecked'" class="checkbox-icon" />
                 </label>
             </div>
-            <!-- <p class="error-message">Please accept the privacy policy.</p> -->
-            <button type="submit">Say Hello :)</button>
-        </form>
-    </div>
+
+            <!-- Text für Datenschutz -->
+            <label for="privacy-policy">
+                I've read the <a href="#">privacy policy</a> and agree to the processing of my data as outlined.
+            </label>
+            <!-- Fehlermeldung -->
+
+        </div>
+        <p class="error-message" *ngIf="!isChecked && isTouched">
+            Please accept the privacy policy.
+        </p>
+        <!-- Submit Button -->
+        <button type="submit" [disabled]="contactForm.invalid">Say Hello :)</button>
+    </form>
+
+
 </div>
