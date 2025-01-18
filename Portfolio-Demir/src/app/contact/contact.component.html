@@ -18,31 +18,29 @@
 
         <div class="form-group">
             <label for="name">What's your name?</label>
-            <input type="text" id="name" name="name" placeholder="Your name goes here" ngModel required
-                #nameInput="ngModel" />
-            <p class="error-message" *ngIf="nameInput.invalid && nameInput.touched">
-                Please enter your name.
-            </p>
+            <input type="text" id="name" name="name"
+                [placeholder]="nameInput.invalid && nameInput.touched ? 'Oops! It seems your name is missing' : 'Your name goes here'"
+                required [(ngModel)]="userName" #nameInput="ngModel" />
         </div>
 
 
         <div class="form-group">
             <label for="email">What's your email?</label>
-            <input type="email" id="email" name="email" placeholder="youremail@email.com" ngModel required email
-                #emailInput="ngModel" />
-            <p class="error-message" *ngIf="emailInput.invalid && emailInput.touched">
-                Please enter a valid email address.
-            </p>
+            <input type="email" id="email" name="email" [placeholder]="
+                emailInput.invalid && emailInput.touched
+                  ? 'Oops! Please enter a valid email address'
+                  : 'youremail@email.com'
+              " required ngModel email #emailInput="ngModel" />
         </div>
 
 
         <div class="form-group-message">
             <label for="message">How can I help you?</label>
-            <textarea id="message" name="message" placeholder="Hello Kadir, I am interested in ..." ngModel required
-                #messageInput="ngModel"></textarea>
-            <p class="error-message" *ngIf="messageInput.invalid && messageInput.touched">
-                Please enter a message.
-            </p>
+            <textarea id="message" name="message" [placeholder]="
+                messageInput.invalid && messageInput.touched
+                  ? 'What do you need to develop?'
+                  : 'Hello Kadir, I am interested in ...'
+              " ngModel required #messageInput="ngModel"></textarea>
         </div>
 
 

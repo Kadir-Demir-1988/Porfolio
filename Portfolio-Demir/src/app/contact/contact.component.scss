@@ -168,19 +168,7 @@
       width: 100%;
       height: 100%;
     }
-
-    // .checked {
-    //   display: none; // Checked-Zustand ausblenden
-    // }
   }
-
-  // input[type="checkbox"]:checked + label .unchecked {
-  //   display: none;
-  // }
-
-  // input[type="checkbox"]:checked + label .checked {
-  //   display: block;
-  // }
 }
 
 button {
@@ -205,8 +193,30 @@ button {
   margin-top: 5px;
 }
 
-
-
 button:disabled {
   cursor: not-allowed;
+}
+
+input[type="text"]::placeholder {
+  color: #ffffff; /* Standardfarbe des Platzhalters */
+}
+
+input.ng-invalid.ng-touched::placeholder {
+  color: #ec7b7b;
+}
+
+input[type="email"]::placeholder {
+  color: #ffffff; /* Standardfarbe des Platzhalters */
+}
+
+input.ng-invalid.ng-touched::placeholder {
+  color: #ec7b7b;
+}
+
+textarea::placeholder {
+  color: #ffffff; /* Standardfarbe des Platzhalters */
+}
+
+textarea.ng-invalid.ng-touched::placeholder {
+  color: #ec7b7b;
 }

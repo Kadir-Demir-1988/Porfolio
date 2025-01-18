@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms';
 export class ContactComponent {
   isChecked = false; // Status der Checkbox
   isTouched = false; // Wurde die Checkbox angeklickt?
+  userName: string = ''; // Name
+  userEmail: string = ''; // E-Mail
+  userMessage: string = ''; // Nachricht
 
   toggleCheckbox() {
     this.isChecked = !this.isChecked; // Zustand umkehren
@@ -19,9 +22,12 @@ export class ContactComponent {
     console.log('Checkbox toggled:', this.isChecked); // Debug-Ausgabe
   }
 
-  onSubmit(form: any) {
-    if (this.isChecked) {
-      alert('Thank you for your message!');
+  onSubmit(form: any): void {
+    if (form.valid) {
+      console.log('Form submitted:', form.value);
+      alert('Your message has been sent!');
+      form.resetForm(); // Formular zurücksetzen
+      this.isChecked = false; // Checkbox zurücksetzen
     }
   }
 }

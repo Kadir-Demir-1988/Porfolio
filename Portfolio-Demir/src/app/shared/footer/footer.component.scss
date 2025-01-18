@@ -79,19 +79,38 @@ footer {
   }
 }
 
-.footerright{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 8px;
-    a{
-        text-decoration: none;
-        font-family: "karla", sans-serif;
-        color: #ffffff;
-        font-size: 16px;
+.footerright {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
 
-        &:hover{
-            color: #3dcfb6;
-        }
+  a {
+    text-decoration: none;
+    font-family: "karla", sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    position: relative; /* Wichtig für das Pseudoelement */
+
+    &:hover {
+      color: #3dcfb6;
     }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -20px; /* Abstand zum Text */
+      top: 50%; /* Vertikal zentriert */
+      transform: translateY(-50%);
+      width: 8px; /* Durchmesser des Punkts */
+      height: 8px; /* Durchmesser des Punkts */
+      background-color: transparent; /* Standard: Unsichtbar */
+      border-radius: 50%; /* Macht den Punkt rund */
+      transition: background-color 0.3s ease;
+    }
+
+    &:hover::before {
+      background-color: #3dcfb6;
+    }
+  }
 }
