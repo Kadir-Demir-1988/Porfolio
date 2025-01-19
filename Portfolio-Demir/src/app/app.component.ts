@@ -8,6 +8,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { SayaboutmeComponent } from './sayaboutme/sayaboutme.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -21,11 +23,20 @@ import { FooterComponent } from './shared/footer/footer.component';
     ProjectsComponent,
     SayaboutmeComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    TranslateModule,
+    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  currentLanguage = 'en';
   title = 'Portfolio-Demir';
+
+  constructor(private translate: TranslateService) {
+    this.translate.addLangs(['de', 'en']);
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
 }

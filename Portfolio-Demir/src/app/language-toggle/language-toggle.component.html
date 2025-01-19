@@ -1,5 +1,9 @@
 <div class="language-toggle">
-    <img (click)="toggleLanguage()"
-        [src]="isEnglish ? '/assets/img/translatebtn/translateEN.svg' : '/assets/img/translatebtn/translateDE.svg'"
-        [ngClass]="isEnglish ? 'english-icon' : 'german-icon'" alt="Language Icon" class="language-icon" />
+    <button (click)="toggleLanguage()">
+        <img
+            [src]="currentLanguage === 'en' ? '/assets/translateDE.svg' : '/assets/translateEN.svg'"
+            
+            class="language-icon"
+        />
+    </button>
 </div>
